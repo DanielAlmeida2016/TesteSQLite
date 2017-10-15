@@ -1,4 +1,4 @@
-package com.teste.testesqlite;
+package com.teste.testesqlite.model;
 
 import java.io.Serializable;
 

@@ -1,7 +1,13 @@
-package com.teste.testesqlite;
+package com.teste.testesqlite.service;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.teste.testesqlite.dao.ArtilhariaDAO;
+import com.teste.testesqlite.model.Artilharia;
+import com.teste.testesqlite.rest.ArtilhariaRest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,19 +21,29 @@ import java.util.List;
 
 public class ArtilhariaService {
 
-    public List<Artilharia> listarTodos(){
+    private ArtilhariaDAO dao;
+    private ArtilhariaRest artilhariaRest;
 
-        List<Artilharia> lista = null;
+    public ArtilhariaService(){
+        dao = new ArtilhariaDAO();
+        artilhariaRest = new ArtilhariaRest();
+    }
+
+    public List<Artilharia> getArtilharia(int campeonatoAno) throws Exception{
+
+        List<Artilharia> lista;
+
+        //String json = artilhariaRest.getArtilharia(ConfiguracaoService.urlBase(campeonatoAno));
 
         String json = "[" +
                 "  {" +
                 "   \"nome\": \"Corello\"," +
-                "   gols\": \"16\"," +
-                "   equipe\": \"Mirassol\"," +
-                "   numero\": \"19\"," +
-                "   posicao\": \"Atacante\"," +
-                "   categoria\": \"Senior\"," +
-                "   amarelos\": \"2\"," +
+                "   \"gols\": \"16\"," +
+                "   \"equipe\": \"Mirassol\"," +
+                "   \"numero\": \"19\"," +
+                "   \"posicao\": \"Atacante\"," +
+                "   \"categoria\": \"Senior\"," +
+                "   \"amarelos\": \"2\"," +
                 "   \"vermelhos\": \"2\"" +
                 "  }," +
                 "  {" +
@@ -75,7 +91,15 @@ public class ArtilhariaService {
         return lista;
     }
 
-    public void inserirDados(){
+    public void inserirDados(SQLiteDatabase bd, List<Artilharia> lista){
+        dao.inserirDados(bd, lista);
+    }
 
+    public void deletarDados(SQLiteDatabase bd){
+        dao.deletarDados(bd);
+    }
+
+    public Artilharia[] listarDadosPorCategoria(Context context, String categoria){
+        return dao.listarDadosPorCategoria(context, categoria);
     }
 }

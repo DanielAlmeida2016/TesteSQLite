@@ -1,4 +1,4 @@
-package com.teste.testesqlite;
+package com.teste.testesqlite.model;
 
 import java.io.Serializable;
 
@@ -80,5 +80,19 @@ public class Artilharia implements Serializable{
 
     public void setVermelhos(int vermelhos) {
         this.vermelhos = vermelhos;
+    }
+
+    @Override
+    public String toString() {
+        return "Artilharia{" +
+                "nome='" + nome + '\'' +
+                ", gols=" + gols +
+                ", equipe='" + equipe + '\'' +
+                ", numero=" + numero +
+                ", posicao='" + posicao + '\'' +
+                ", categoria='" + categoria + '\'' +
+                ", amarelos=" + amarelos +
+                ", vermelhos=" + vermelhos +
+                '}';
     }
 }
