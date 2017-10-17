@@ -16,8 +16,10 @@ import com.teste.testesqlite.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText txt;
+    private EditText txtRodada;
+    private EditText txtTurno;
     private Button btn;
+    private Button btn2;
     private Atualizacao atualizacao;
     private ClassificacaoService classificacaoService;
 
@@ -27,8 +29,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btn = (Button) findViewById(R.id.btn);
+        btn2 = (Button) findViewById(R.id.btn2);
 
-        txt = (EditText) findViewById(R.id.txt);
+        txtRodada = (EditText) findViewById(R.id.txtRodada);
+        txtTurno = (EditText) findViewById(R.id.txtTurno);
     }
 
     public void salvar(View v) {
@@ -61,7 +65,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void mostrar(View view) {
 
+        int rodada;
+        int turno;
+
+        if (txtRodada.getText().length() != 0 && txtTurno.getText().length() != 0) {
+            rodada = Integer.parseInt(txtRodada.getText().toString());
+            turno = Integer.parseInt(txtTurno.getText().toString());
+        }
+        else{
+            rodada = 1;
+            turno = 1;
+        }
+
         Intent intent = new Intent(this, MostrarResultados.class);
+        intent.putExtra("rodada", rodada);
+        Log.d("teste", "rodada: " + rodada);
+        intent.putExtra("turno", turno);
+        Log.d("teste", "turno: " + turno);
         startActivity(intent);
     }
 

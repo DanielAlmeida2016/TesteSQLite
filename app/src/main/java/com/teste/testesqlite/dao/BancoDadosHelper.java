@@ -23,6 +23,8 @@ public class BancoDadosHelper extends SQLiteOpenHelper{
         bd.execSQL(BancoDados.CRIAR_TABELA_AMARELO);
         bd.execSQL(BancoDados.CRIAR_TABELA_VERMELHO);
         bd.execSQL(BancoDados.CRIAR_TABELA_SUSPENSAO);
+        bd.execSQL(BancoDados.CRIAR_TABELA_RESULTADO);
+        bd.execSQL(BancoDados.CRIAR_TABELA_JOGO);
         bd.execSQL(BancoDados.CRIAR_TABELA_ATAQUE);
         bd.execSQL(BancoDados.CRIAR_TABELA_DEFESA);
         Log.d("teste", "Teste 1 - criou as tabelas");
@@ -35,6 +37,8 @@ public class BancoDadosHelper extends SQLiteOpenHelper{
         bd.execSQL(BancoDados.DELETAR_TABELA_AMARELO);
         bd.execSQL(BancoDados.DELETAR_TABELA_VERMELHO);
         bd.execSQL(BancoDados.DELETAR_TABELA_SUSPENSAO);
+        bd.execSQL(BancoDados.DELETAR_TABELA_RESULTADO);
+        bd.execSQL(BancoDados.DELETAR_TABELA_JOGO);
         bd.execSQL(BancoDados.DELETAR_TABELA_ATAQUE);
         bd.execSQL(BancoDados.DELETAR_TABELA_DEFESA);
         onCreate(bd);

@@ -9,11 +9,15 @@ import com.teste.testesqlite.model.Artilharia;
 import com.teste.testesqlite.model.Cartao;
 import com.teste.testesqlite.model.Classificacao;
 import com.teste.testesqlite.model.Configuracao;
+import com.teste.testesqlite.model.Jogo;
+import com.teste.testesqlite.model.Resultado;
 import com.teste.testesqlite.model.Suspensao;
 import com.teste.testesqlite.service.ArtilhariaService;
 import com.teste.testesqlite.service.CartaoService;
 import com.teste.testesqlite.service.ClassificacaoService;
 import com.teste.testesqlite.service.ConfiguracaoService;
+import com.teste.testesqlite.service.JogoService;
+import com.teste.testesqlite.service.ResultadoService;
 import com.teste.testesqlite.service.SuspensaoService;
 
 import java.util.List;
@@ -29,6 +33,8 @@ public class Atualizacao {
     private ArtilhariaService artilhariaService;
     private CartaoService cartaoService;
     private SuspensaoService suspensaoService;
+    private ResultadoService resultadoService;
+    private JogoService jogoService;
     private Context context;
 
     public Atualizacao(Context context){
@@ -93,6 +99,8 @@ public class Atualizacao {
             artilhariaService = new ArtilhariaService();
             cartaoService = new CartaoService();
             suspensaoService = new SuspensaoService();
+            resultadoService = new ResultadoService();
+            jogoService = new JogoService();
             Log.d("teste", "instanciou os services");
 
             bd = BancoDadosHelper.FabricaDeConexao.getConexaoServico(context);
@@ -103,6 +111,8 @@ public class Atualizacao {
             List<Cartao> listaCartaoAmarelo = cartaoService.getCartaoAmarelo(configuracaoServidor.getCampeonatoAno());
             List<Cartao> listaCartaoVermelho = cartaoService.getCartaoVermelho(configuracaoServidor.getCampeonatoAno());
             List<Suspensao> listaSuspensao = suspensaoService.getSuspensao(configuracaoServidor.getCampeonatoAno());
+            List<Resultado> listaResutado = resultadoService.getResultado(configuracaoServidor.getCampeonatoAno());
+            List<Jogo> listaJogo = jogoService.getJogo(configuracaoServidor.getCampeonatoAno());
             Log.d("teste", "carregou as listas");
 
             bd.beginTransaction();
@@ -112,11 +122,15 @@ public class Atualizacao {
             artilhariaService.deletarDados(bd);
             cartaoService.deletarDados(bd);
             suspensaoService.deletarDados(bd);
+            resultadoService.deletarDados(bd);
+            jogoService.deletarDados(bd);
             Log.d("teste", "deletou dados antigos");
             classificacaoService.inserirDados(bd, listaClassificacao);
             artilhariaService.inserirDados(bd, listaArtilharia);
             cartaoService.inserirDados(bd, listaCartaoAmarelo, listaCartaoVermelho);
             suspensaoService.inserirDados(bd, listaSuspensao);
+            resultadoService.inserirDados(bd, listaResutado);
+            jogoService.inserirDados(bd, listaJogo);
             Log.d("teste", "inseriu novos dados");
 
             configuracaoService.atualizarVersaoLocal(bd, configuracaoServidor, versaoLocal);

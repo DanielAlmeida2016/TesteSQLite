@@ -76,6 +76,35 @@ public class BancoDados {
         public static final String COLUNA_SUSPENSAO_JOGOS = "jogos";
         public static final String COLUNA_SUSPENSAO_MOTIVO = "motivo";
 
+        public static final String TABELA_RESULTADO = "tabelaResultado";
+        public static final String COLUNA_RESULTADO_DATA = "data";
+        public static final String COLUNA_RESULTADO_HORARIO = "horario";
+        public static final String COLUNA_RESULTADO_EQUIPE1 = "equipe1";
+        public static final String COLUNA_RESULTADO_GOLS_EQUIPE1 = "golsEquipe1";
+        public static final String COLUNA_RESULTADO_EQUIPE2 = "equipe2";
+        public static final String COLUNA_RESULTADO_GOLS_EQUIPE2 = "golsEquipe2";
+        public static final String COLUNA_RESULTADO_CARTOES_AMARELOS = "cartoesAmarelos";
+        public static final String COLUNA_RESULTADO_CARTOES_VERMELHOS = "cartoesVermelhos";
+        public static final String COLUNA_RESULTADO_TOTAL_CARTOES = "totalCartoes";
+        public static final String COLUNA_RESULTADO_CATEGORIA = "categoria";
+        public static final String COLUNA_RESULTADO_ARBITRO = "arbitro";
+        public static final String COLUNA_RESULTADO_ASSISTENTE1 = "assistente1";
+        public static final String COLUNA_RESULTADO_ASSISTENTE2 = "assistente2";
+        public static final String COLUNA_RESULTADO_NOTA_ARBITRO_MEDIA = "notaArbitroMedia";
+        public static final String COLUNA_RESULTADO_NOTA_ARBITRO_EQUIPE1 = "notaArbitroEquipe1";
+        public static final String COLUNA_RESULTADO_NOTA_ARBITRO_EQUIPE2 = "notaArbitroEquipe2";
+        public static final String COLUNA_RESULTADO_RODADA = "rodada";
+        public static final String COLUNA_RESULTADO_TURNO = "turno";
+
+        public static final String TABELA_JOGO = "tabelaJogo";
+        public static final String COLUNA_JOGO_RODADA = "rodada";
+        public static final String COLUNA_JOGO_TURNO = "turno";
+        public static final String COLUNA_JOGO_DATA = "data";
+        public static final String COLUNA_JOGO_HORARIO = "horario";
+        public static final String COLUNA_JOGO_EQUIPE1 = "equipe1";
+        public static final String COLUNA_JOGO_EQUIPE2 = "equipe2";
+        public static final String COLUNA_JOGO_CATEGORIA = "categoria";
+
         public static final String TABELA_ATAQUE = "tabelaAtaque";
         public static final String COLUNA_ATAQUE_EQUIPE = "equipe";
         public static final String COLUNA_ATAQUE_GOLS_PRO = "golsPro";
@@ -144,6 +173,37 @@ public class BancoDados {
             Tabela.COLUNA_SUSPENSAO_JOGOS + Tabela.TIPO_TEXTO + Tabela.VIRGULA +
             Tabela.COLUNA_SUSPENSAO_MOTIVO + Tabela.TIPO_TEXTO + Tabela.PARENTESES_SAIDA;
 
+    public static final String CRIAR_TABELA_RESULTADO = Tabela.CRIAR_TABELA + Tabela.TABELA_RESULTADO + Tabela.PARENTESES_ENTRADA +
+            Tabela._ID + Tabela.TIPO_INTEIRO + Tabela.CHAVE_PRIMARIA + Tabela.AUTO_INCREMENTO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_DATA + Tabela.TIPO_TEXTO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_HORARIO + Tabela.TIPO_TEXTO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_EQUIPE1 + Tabela.TIPO_TEXTO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_GOLS_EQUIPE1 + Tabela.TIPO_INTEIRO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_EQUIPE2 + Tabela.TIPO_TEXTO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_GOLS_EQUIPE2 + Tabela.TIPO_INTEIRO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_CARTOES_AMARELOS + Tabela.TIPO_INTEIRO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_CARTOES_VERMELHOS + Tabela.TIPO_INTEIRO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_TOTAL_CARTOES + Tabela.TIPO_INTEIRO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_CATEGORIA + Tabela.TIPO_TEXTO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_ARBITRO + Tabela.TIPO_TEXTO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_ASSISTENTE1 + Tabela.TIPO_TEXTO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_ASSISTENTE2 + Tabela.TIPO_TEXTO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_NOTA_ARBITRO_MEDIA + Tabela.TIPO_INTEIRO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_NOTA_ARBITRO_EQUIPE1 + Tabela.TIPO_INTEIRO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_NOTA_ARBITRO_EQUIPE2 + Tabela.TIPO_INTEIRO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_RODADA + Tabela.TIPO_INTEIRO + Tabela.VIRGULA +
+            Tabela.COLUNA_RESULTADO_TURNO + Tabela.TIPO_INTEIRO + Tabela.PARENTESES_SAIDA;
+
+    public static final String CRIAR_TABELA_JOGO = Tabela.CRIAR_TABELA + Tabela.TABELA_JOGO + Tabela.PARENTESES_ENTRADA +
+            Tabela._ID + Tabela.TIPO_INTEIRO + Tabela.CHAVE_PRIMARIA + Tabela.AUTO_INCREMENTO + Tabela.VIRGULA +
+            Tabela.COLUNA_JOGO_RODADA + Tabela.TIPO_INTEIRO + Tabela.VIRGULA +
+            Tabela.COLUNA_JOGO_TURNO + Tabela.TIPO_INTEIRO + Tabela.VIRGULA +
+            Tabela.COLUNA_JOGO_DATA + Tabela.TIPO_TEXTO + Tabela.VIRGULA +
+            Tabela.COLUNA_JOGO_HORARIO + Tabela.TIPO_TEXTO + Tabela.VIRGULA +
+            Tabela.COLUNA_JOGO_EQUIPE1 + Tabela.TIPO_TEXTO + Tabela.VIRGULA +
+            Tabela.COLUNA_JOGO_EQUIPE2 + Tabela.TIPO_TEXTO + Tabela.VIRGULA +
+            Tabela.COLUNA_JOGO_CATEGORIA + Tabela.TIPO_TEXTO + Tabela.PARENTESES_SAIDA;
+
     public static final String CRIAR_TABELA_ATAQUE = Tabela.CRIAR_TABELA + Tabela.TABELA_ATAQUE + Tabela.PARENTESES_ENTRADA +
             Tabela._ID + Tabela.TIPO_INTEIRO + Tabela.CHAVE_PRIMARIA + Tabela.AUTO_INCREMENTO + Tabela.VIRGULA +
             Tabela.COLUNA_ATAQUE_EQUIPE + Tabela.TIPO_TEXTO + Tabela.VIRGULA +
@@ -175,6 +235,12 @@ public class BancoDados {
 
     public static final String DELETAR_TABELA_SUSPENSAO =
             Tabela.EXCLUIR_TABELA + Tabela.TABELA_SUSPENSAO;
+
+    public static final String DELETAR_TABELA_RESULTADO =
+            Tabela.EXCLUIR_TABELA + Tabela.TABELA_RESULTADO;
+
+    public static final String DELETAR_TABELA_JOGO =
+            Tabela.EXCLUIR_TABELA + Tabela.TABELA_JOGO;
 
     public static final String DELETAR_TABELA_ATAQUE =
             Tabela.EXCLUIR_TABELA + Tabela.TABELA_ATAQUE;
